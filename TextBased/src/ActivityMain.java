@@ -3,6 +3,12 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+/**
+ * RPG Game all on the terminal.
+ *
+ * @author Reaper
+ *
+ */
 public class ActivityMain {
     //Number Decelerations
     public static int health = 100, defence = 10, strength = 10, attack = 10,
@@ -195,6 +201,9 @@ public class ActivityMain {
 
     }
 
+    /**
+     * Displays player statistics, always shown(top of the screen).
+     */
     public static void PlayerScreenSet() {
         Clear(); //clearing the screen
         System.out
@@ -204,6 +213,9 @@ public class ActivityMain {
         //in this method we are just printing the players need to know info like there name and exp and gold and level. you will see this method used a lot in other methods
     }
 
+    /**
+     * Shown when the player wins a battle, awards player with Exp, and Gold.
+     */
     public static void Win() {
         exp = exp + EnemyIG.expGain;
         expNeededOut = (int) (expNeeded); //making this show up before loop is ran
@@ -222,6 +234,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Displays the players statistics.
+     */
     public static void StatsScreen() {
         Clear(); //clearing the screen
         System.out.println("    Name: " + playerName + "     Level: "
@@ -313,6 +328,9 @@ public class ActivityMain {
 
     }
 
+    /**
+     * Gets the name of the player.
+     */
     public static void Name() {
         System.out.println("Please enter name: ");
         String playerName1 = in.nextLine(); //creating and making playername1 equal the player input.
@@ -322,6 +340,9 @@ public class ActivityMain {
         Intro(); //starting the Intro method.
     }
 
+    /**
+     * Screen shown at strat of game.
+     */
     public static void Intro() {
         introS = true;
         Clear(); //clearing the screen
@@ -371,6 +392,10 @@ public class ActivityMain {
 
     }
 
+    /**
+     * Displays screen after leaving town or after a fight, allows player to:
+     * Continue Fighting, Return to town, Inventory, Stats, or Fast Travel
+     */
     public static void MainMenu() {
         Clear();
         mainM = true;
@@ -403,6 +428,9 @@ public class ActivityMain {
 
     }
 
+    /**
+     * Randomly picks enemy within town lvl and generates the fight screen vars.
+     */
     public static void PreFight() {
         Random rand = new Random(); //when a player goes to fight it will choose a random enemy for the player to fight
         num = rand.nextInt(10); //okay this is a lot to take in basically it is made to if you are in a town the levels of the enemy's there will change accordingly.
@@ -792,6 +820,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Opens up store menu, allows player to but and sell weapons.
+     */
     public static void Store() {
         Clear();
         PlayerScreenSet();
@@ -1029,6 +1060,9 @@ public class ActivityMain {
 
     }
 
+    /**
+     * Tells the player that they do not have enough gold to buy a item i store.
+     */
     public static void NotEnoughGold() {//if player does not have enough gold this will happen
         if (gold < cost) {
             try {
@@ -1043,6 +1077,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Shows inventory of player, also allowing to equip and unequip weapons.
+     */
     public static void Inventory() {
         Clear();
         System.out.println("\t\tINVENTORY");
@@ -1337,6 +1374,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Returns screen back to store.
+     */
     public static void BackToStore() {
         System.out.println("\n\n1: Back"); //here to send player back to store after viewing the weapon stats
         String were = in.nextLine();
@@ -1359,6 +1399,9 @@ public class ActivityMain {
 
     }
 
+    /*
+     * Prints out the statistics of the @weapon WoodenDagger.
+     */
     public static void WoodenDagger() {
         PlayerScreenSet();
         System.out.println("\nName: " + WoodenDagger.WName);
@@ -1369,6 +1412,9 @@ public class ActivityMain {
         BackToStore();
     } //..
 
+    /*
+     * Prints out the statistics of the @weapon RustySword.
+     */
     public static void RustySword() {
         PlayerScreenSet();
         System.out.println("\nName: " + RustySword.WName);
@@ -1379,6 +1425,9 @@ public class ActivityMain {
         BackToStore();
     } //..
 
+    /*
+     * Prints out the statistics of the @weapon Hatchet.
+     */
     public static void Hatchet() {
         PlayerScreenSet();
         System.out.println("\nName: " + Hatchet.WName);
@@ -1389,6 +1438,9 @@ public class ActivityMain {
         BackToStore();
     } //..
 
+    /*
+     * Prints out the statistics of the @weapon Spear.
+     */
     public static void Spear() {
         PlayerScreenSet();
         System.out.println("\nName: " + Spear.WName);
@@ -1399,6 +1451,9 @@ public class ActivityMain {
         BackToStore();
     } // IN ALL THE WEAPON METHODS WE ARE JUST MAKING THE NAMES/LEVELS CORRESPOND TO TO WEAPON LEVELS DECLARED AT THE TOP OF THE PROGRAM
 
+    /*
+     * Prints out the statistics of the @weapon RuneScimitar.
+     */
     public static void RuneScimitar() {
         PlayerScreenSet();
         System.out.println("\nName: " + RuneScimitar.WName);
@@ -1409,6 +1464,9 @@ public class ActivityMain {
         BackToStore();
     } //..
 
+    /*
+     * Prints out the statistics of the @weapon GodSword.
+     */
     public static void GodSword() {
         PlayerScreenSet();
         System.out.println("\nName: " + GodSword.WName);
@@ -1419,6 +1477,9 @@ public class ActivityMain {
         BackToStore();
     } //..
 
+    /*
+     * Prints out the statistics of the @weapon InfinitySword.
+     */
     public static void InfinitySword() {
         PlayerScreenSet();
         System.out.println("\nName: " + InfinitySword.WName);
@@ -1429,6 +1490,9 @@ public class ActivityMain {
         BackToStore();
     } //..
 
+    /**
+     * Opens quartermaster dialogue.
+     */
     public static void Quartermaster() {
         Clear();
         QM1 = true; //making this boolean true so that if the payer goes to stats screen they can not go anywhere else but back, And so if they do go back so they fot back to the right place.
@@ -1513,6 +1577,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Potion statistics.
+     */
     public static void PotionsStats() {
         Clear();
         PlayerScreenSet();
@@ -1523,6 +1590,9 @@ public class ActivityMain {
         BackToStore();
     }
 
+    /**
+     * Potion upgrading algorithm.
+     */
     public static void PotionsUpgrade() {
         int rand1 = rand.nextInt(0 + 4), rand2 = rand.nextInt(0 + 4),
                 rand3 = rand.nextInt(0 + 4); //this if for the upgrade of the potion it will upgrade each stat for a random number of 0-3 as seen bellow
@@ -1548,6 +1618,9 @@ public class ActivityMain {
         } //the if statements are there to make sure that the player and get insane amount of stat boost by upgrading
     }
 
+    /**
+     * Potion Drink algorithm.
+     */
     public static void PotionsDrink() {
         System.out.println(pots);
         if (pots == 0) {
@@ -1579,6 +1652,9 @@ public class ActivityMain {
         FightScreen();
     }
 
+    /**
+     * Screen Pause Timer.
+     */
     public static void WaitForStore() { //this is just a delay for the store to tell the player that they own a item, i put it into a method because i did not want to make the Store method any more messy
         try {
             Clear();
@@ -1591,6 +1667,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Displays the Enemy Stats and Player Stats Updates every attack.
+     */
     public static void FightScreen() {
         if (health <= 0) {
             YourDead();
@@ -1628,6 +1707,9 @@ public class ActivityMain {
 
     }
 
+    /**
+     * Shows a text screen when enemy dies, Awards player with gold, and Exp.
+     */
     public static void EnemyDeathScreen() {
         Potion = false;
         Win();
@@ -1662,6 +1744,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Displays screen when player dies.
+     */
     public static void YourDead() {
         Clear();
         health = healthMax;
@@ -1681,6 +1766,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Attack function, deals damage to player or enemy.
+     */
     public static void Attack() {
         if (health <= 0) {
             YourDead();
@@ -1800,6 +1888,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Displays main menu/at town menu, This shows when a player enters a town.
+     */
     public static void Town() {
         town = true;
         PlayerScreenSet();
@@ -1851,6 +1942,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Traveling to towns wait timer.
+     */
     public static void TravelWaitTime() {
         Clear(); //i made this method just so that there was a little delay in fast travel and so it sad were you are going while you are waiting
         try {
@@ -1862,6 +1956,9 @@ public class ActivityMain {
         }
     }
 
+    /**
+     * Funtion that allows the player to travel between towns.
+     */
     public static void FastTravel() {
         PlayerScreenSet();
         System.out.println("\t\tWere Would you like to go?");
